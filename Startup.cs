@@ -26,7 +26,7 @@ namespace WebApplication3
             //    //logger.Debug("after OIDC, after app handler");
             //    Console.WriteLine("Done with first MW");
             //});
-            //app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
+            app.SetDefaultSignInAsAuthenticationType(DefaultAuthenticationTypes.ApplicationCookie);
 
             app.Use(async (Context, next) =>
             {
@@ -35,11 +35,7 @@ namespace WebApplication3
                 //logger.Debug("after OIDC, after app handler");
                 Console.WriteLine("Done with Second MW");
             });
-            app.UseCookieAuthentication(new CookieAuthenticationOptions
-            {
-                AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
-
-            });
+            app.UseCookieAuthentication(new CookieAuthenticationOptions {});
             app.UseOpenIdConnectAuthentication(new OpenIdConnectAuthenticationOptions()
             {
                 SignInAsAuthenticationType= DefaultAuthenticationTypes.ApplicationCookie,
