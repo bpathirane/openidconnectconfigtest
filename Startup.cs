@@ -38,7 +38,6 @@ namespace WebApplication3
             app.UseCookieAuthentication(new CookieAuthenticationOptions {});
             app.UseOpenIdConnectAuthentication(new OpenIdConnectAuthenticationOptions()
             {
-                SignInAsAuthenticationType= DefaultAuthenticationTypes.ApplicationCookie,
                 ClientId = "dhc.admin",
                 AuthenticationType = DefaultAuthenticationTypes.ExternalCookie,
            //     AuthenticationMode=AuthenticationMode.Active,
